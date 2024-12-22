@@ -2,7 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const dotenv = require("dotenv");
-const authRoutes = require("./routes/authRoutes");
+const authRoutes = require("../server/routes/ authRoutes");
 const petRoutes = require("./routes/petRoutes");
 
 dotenv.config();
@@ -22,9 +22,9 @@ mongoose
   .catch((err) => console.log(err));
 
 // Routes
-app.use("/api/auth", authRoutes);
-app.use("/api/pets", petRoutes);
+app.use("/api/auth", authRoutes); // Authentication routes
+app.use("/api/pets", petRoutes); // Pet routes
 
-app.listen(process.env.PORT || 5000, () => {
-  console.log("Server running on port 5000");
+app.listen(process.env.PORT || 3000, () => {
+  console.log("Server running on port 3000");
 });
